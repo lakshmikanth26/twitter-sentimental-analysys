@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Twitter Sentiment Analysis</h1>
+    
+    <form method="post" action="{{ url_for('analyze') }}">
+        <label for="tweet_text">Enter Tweet Text:</label>
+        <textarea name="tweet_text" id="tweet_text" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    {% if tweet_text %}
+        <h2>Analysis Result:</h2>
+        <p><strong>Tweet Text:</strong> {{ tweet_text }}</p>
+        <p><strong>Sentiment Label:</strong> {{ sentiment_label }}</p>
+        <p><strong>Sentiment Score:</strong> {{ sentiment_score }}</p>
+    {% endif %}
+</body>
+</html>
